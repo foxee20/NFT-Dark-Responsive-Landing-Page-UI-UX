@@ -13,13 +13,16 @@ body {
   margin: 0 auto;
 }
 .stats__body {
-  display: flex;
+  display: grid;
+  grid-template-areas:
+    "title card"
+    "buttons card"
+    "stats card";
   padding: 0 46px;
-  justify-content: space-between;
 }
-.stats__text {
-}
+
 .stats__title {
+  grid-area: title;
   font-size: 85px;
   font-family: Oxanium;
   font-weight: 700;
@@ -32,6 +35,7 @@ body {
   color: #ffce4e;
 }
 .stats__buttons {
+  grid-area: buttons;
   display: flex;
   margin-bottom: 121px;
 }
@@ -56,6 +60,7 @@ body {
   line-height: 36px;
 }
 .stats__stats {
+  grid-area: stats;
   display: flex;
   max-width: 648px;
   justify-content: space-between;
@@ -77,9 +82,10 @@ body {
   font-family: Work Sans;
   line-height: 35px;
 }
+
 .stats__card {
+  grid-area: card;
   max-width: 558px;
-  flex-grow: 1;
 }
 .stats__card_picture {
   background-image: url("../img/stats/card.png");
@@ -167,10 +173,16 @@ body {
   backdrop-filter: blur(22.5px);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1205px) {
   .stats__body {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "buttons"
+      "card"
+      "stats";
     align-items: center;
+    justify-items: center;
   }
   .stats__title {
     text-align: center;
@@ -183,6 +195,8 @@ body {
     display: block;
   }
   .stats__stats {
-    max-width: 100%;
+  }
+  .stats__card {
+    width: 100%;
   }
 }
